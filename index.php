@@ -1,5 +1,8 @@
 <?php
 
+setlocale(LC_ALL, "ru_RU.UTF-8");
+date_default_timezone_set("Europe/Moscow");
+
 define( 'DS', DIRECTORY_SEPARATOR );
 define( 'DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT'] );
 define( 'ROOT',  DOCUMENT_ROOT );
