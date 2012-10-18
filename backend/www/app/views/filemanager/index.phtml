@@ -1,0 +1,63 @@
+<h2>Файловый менеджер</h2>
+
+<div class="paneButtons">
+
+  {{ @buttons }}
+
+</div>
+
+<form id="file_form" action="/auth/filemanager/upload/" enctype="multipart/form-data" method="post">
+  <button class="button buttonGreyUi" id="file_button" rel="file">выберите файл...</button>
+  <div id="fileInfo">
+    имя: <span id="fName" class="custom-label greenUi">somefile.zip</span>&nbsp;&nbsp;
+    размер:<span id="fSize" class="custom-label greenUi">145Kb</span>
+  </div>
+  <br/>
+  <input style="display:none" type="file" name="file" id="file"/>
+  <input type="submit" class="button buttonGreenUi" value="Загрузить" />
+</form>
+<br/><br/>
+
+
+{{ @pagination }}
+
+
+<div class="uploadingFiles" id="insert">
+
+
+  {% if empty(@files) %}
+    <div class="system_info" style="display: block">
+      <span class="bold">Системное сообщение</span><span class="close">×</span>
+      <p>Нет данных для отображения</p>
+    </div>
+  {% endif %}
+
+
+  {% for @file in @files %}
+    <div class="filePreview">
+      <div class="preview">
+        {% if preg_match('/(jpeg|jpg|png|gif)/i', @file.type) %}
+          <img src="/public/uploads/thumbnails/{{ @file.name }}" />
+        {% else %}
+          <span class="iconFile"><span class="custom-number blackUi">.{{ @file.type }}</span></span>
+        {% endif %}
+      </div>
+      <div class="file-name">
+        <span class="custom-label blueUi" style="font-size: 10px">{{ @file.name }}</span>
+      </div>
+      <div class="file-size">
+        <span class="custom-number yellowUi">{{ @file.size }}Kb</span>
+      </div>
+      <div class="file-actions">
+        <button class="button buttonRedUi remove_file" rel="{{ @file.name }}">Удалить</button>
+      </div>
+    </div>
+    <span class="clear"></span>
+  {% endfor %}
+
+
+</div>
+<br/>
+
+
+{{ @pagination }}

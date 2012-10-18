@@ -1,0 +1,63 @@
+<h2>Список категорий</h2>
+
+<div class="PaneButtons">
+  {{ @buttons }}
+</div>
+
+<div class="system_info" style="display: block">
+  <span class="bold">Системное сообщение</span><span class="close">×</span>
+  <p>Данный список содержит только категории с привязанными элементами.</p>
+  <p>Категории без элементов в этот список не включены.</p>
+</div>
+<br/>
+
+<div class="table">
+
+    <div class="table-head">
+      <span class="Mname" >Название</span>
+      <span class="Mlink" >Количество элементов</span>
+      <span class="Mactions">Управление</span>
+    </div>
+
+  {% for @c in @category %}
+    <div class="table-row">
+
+        <span class="Mname"><span class="custom-label greenUi">{{ @c.name }}</span></span>
+        <span class="Mlink"><span class="custom-number blueUi">{{ @c.count }}</span></span>
+        <span class="Mactions">
+          <button class="data-load button buttonBlueUi" href="/auth/category/edit/{{ @c.id }}">редактировать</button>
+        </span>
+
+    </div>
+  {% endif %}
+</div>
+<br/><br/>
+<span class="show_more">отобразить пустые категории</span>
+<div class="more_options">
+  {% if count(@empty) %}
+  <div class="table">
+    <div class="table-head">
+      <span class="Mname" >Название</span>
+      <span class="Mlink" >Количество элементов</span>
+      <span class="Mactions">Управление</span>
+    </div>
+
+    {% for @c in @empty %}
+      <div class="table-row">
+        <span class="Mname"><span class="custom-label greyUi">{{ @c.name }}</span></span>
+        <span class="Mlink" style="width:230px"><span class="custom-number redUi">{{ '0' }}</span></span>
+        <span class="Mactions">
+          <button class="data-load button buttonBlueUi" href="/auth/category/edit/{{ @c.id }}">редактировать</button>
+          <button class="data-load button buttonRedUi" href="/auth/category/delete/{{ @c.id }}">удалить</button>
+        </span>
+      </div>
+    {% endfor %}
+
+   </div>
+  {% else %}
+      <div class="system_info" style="display: block">
+        <span class="bold">Системное сообщение</span>
+        <p>Список пустых категорий не содержит ни одной записи</p>
+    </div>
+  {% endif %}
+</div>

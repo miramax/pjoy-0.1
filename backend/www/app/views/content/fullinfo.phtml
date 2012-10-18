@@ -1,0 +1,82 @@
+<h2>Подробная информация о страницах</h2>
+
+<div class="paneButtons">
+
+  {{ @buttons }}
+
+</div>
+
+{{ @pagination }}
+
+<br/>
+<div class="table">
+
+  <div class="table-head">
+    <span class="name data-load"       href="{{ @link }}&order=name">Название</span>
+    <span class="categoryId data-load" href="{{ @link }}&order=categoryId">Категория</span>
+    <span class="createdBy data-load"  href="{{ @link }}&order=createdBy">Автор</span>
+    <span class="status data-load"     href="{{ @link }}&order=status">Статус</span>
+    <span class="Cdate data-load"      href="{{ @link }}&order=createDate">Дата созд.</span>
+    <span class="Mdate data-load"      href="{{ @link }}&order=modifyDate">Дата изм.</span>
+  </div>
+
+  /* output table rows */
+  
+  {% for @ct in @content %}
+  <div class="table-row">
+    <span class="name">
+      <a href="/auth/content/edit/{{ @ct.id }}" class="data-load">{{ @ct.name }}</a>
+    </span>
+    <span class="categoryId">
+      <span class="custom-label blueUi">
+
+        /* get current category */
+
+        {% for @cy in @categoryes %}
+          {% if @ct.categoryId == @cy.id %}
+            {{ @cy.name }}
+          {% endif %}
+        {% endfor %}
+
+      </span>
+    </span>
+    <span class="createdBy">
+      <span class="custom-label yellowUi">
+
+        /* get current user name */
+
+        {% for @user in @users %}
+          {% if @ct.createdBy == @user.id %}
+            {{ @user.name }}
+          {% endif %}
+        {% endfor %}
+
+      </span>
+    </span>
+    <span class="status">
+
+      /* get current className */
+
+      {% if @ct.status == 1 %}
+        {% @className = 'green' %}
+        {% @status = 'вкл' %}
+      {% else %}
+        {% @className = 'red' %}
+        {% @status = 'выкл' %}
+      {% endif %}
+
+      <span class="custom-label {{ @className }}Ui">{{ @status }}</span>
+    </span>
+    <span class="Cdate">
+      <span class="custom-label greyUi">{{ @ct.createDate | shortDate }}</span>
+    </span>
+    <span class="Mdate">
+       <span class="custom-label greyUi">{{ @ct.modifyDate | shortDate }}</span>
+    </span>
+  </div>
+  {% endfor %}
+
+</div>
+<br/>
+
+{{ @pagination }}

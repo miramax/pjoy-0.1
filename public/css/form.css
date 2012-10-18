@@ -1,0 +1,146 @@
+.native_form input,
+.native_form label,
+.native_form textarea,
+.native_form select {
+  display: block;
+  font-size: 17px;
+  color: #444;
+}
+
+
+#form_response {
+  display: none;
+}
+
+.native_form input {
+  background: url(../img/inputs_bg.jpg) repeat-x;
+  width: 295px;
+  height: 26px;
+  padding: 3px 0px 3px 5px;
+  border: 1px solid #d8d8d8;
+  outline: none;
+  font-size: 17px;
+}
+
+.native_form textarea {
+  background: url(../img/textarea_bg.jpg) repeat-x;
+  width: 295px;
+  height: 114px;
+  max-height: 114px;
+  max-width: 400px;
+  padding: 3px 0px 3px 5px;
+  border: 1px solid #d8d8d8;
+  outline: none;
+  font-size: 17px;
+}
+
+.native_form select {
+  width: 295px;
+  height: 26px;
+}
+
+.native_form input, .native_form textarea, .native_form select  {
+  margin: 5px 0px 10px 0px;
+}
+
+.native_form input[type=file] {
+  border: none;
+  background: none;
+}
+
+.native_form .submit:active, .native_form .submit:focus {
+  background: url(../img/submit_btn_hover.png) no-repeat;
+}
+
+.native_form .submit {
+  background: url(../img/submit_btn.png) no-repeat;
+  border: none;
+  padding: 0px 0px 3px 5px;
+  width: 220px;
+  height: 36px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  position: relative;
+  margin-top: 0px;
+  top: 10px;
+  font-size: 16px;
+}
+
+
+.native_form .disabled, .native_form .disabled:active  {
+  background: url(../img/submit_btn_disabled.png) no-repeat;
+  border: none;
+  padding: 0px 0px 3px 5px;
+  width: 220px;
+  height: 36px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  position: relative;
+  margin-top: 0px;
+  top: 10px;
+}
+
+.form_error, .form_success {
+  padding: 5px 0px 5px 15px;
+  background: #eff0e6;
+  font-size: 14px;
+  border: 1px solid #b7b7b7;
+  margin-bottom: 15px;
+  line-height: 140%;
+  width: 400px;
+}
+
+.form_error {
+  border: 1px solid red;
+  background: #FFEBE8;
+  color: red;
+}
+
+.form_success {
+  background: #EBFFE8;
+  border: 1px solid green;
+  color: green;
+}
+
+.code-image {
+  float: left;
+  overflow: hidden;
+  width: 80px;
+  height: 35px;
+  border: 1px solid #eee;
+  position: relative;
+  top: 7px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input.code-input {
+  width: 100px;
+  position: relative;
+  left: 18px;
+  top: 4px;
+}
+
+.code-refresh {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 12px;
+  cursor: pointer;
+  color: #0082d5;
+  border-bottom: 1px dashed #0082d5;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  top: 20px;
+  left: 8px;
+}
+
+.code-refresh:hover {
+  border-bottom: none;
+  color: #de2c2c;
+}
+
+/*
+.native_form .empted {
+  border: 1px solid #7e7e7e;
+}*/

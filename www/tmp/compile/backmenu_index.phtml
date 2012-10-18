@@ -1,0 +1,48 @@
+<h2>Редактор меню</h2>
+
+<div class="PaneButtons">
+  <?php echo $buttons ?>
+</div>
+
+<?php if(isset($_GET["success"]) ) {?>
+<div class="system_success" style="display:block">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+  <p>Изменения успешно сохранены</p>
+</div><br/><br/>
+<?php } ?>
+
+<?php foreach($first_level as $parent){?>
+<span class="custom-label greyUi" style="color:white;font-size: 14px;">&laquo;<?php echo $parent["name"] ?>&raquo;</span>
+  <div class="table">
+
+    <div class="table-head">
+      <span class="Mname" >Название</span>
+      <span class="Mlink" >Путь</span>
+      <span class="Mactions">Управление</span>
+    </div>
+      <div class="table-row">
+
+        <span class="Mname"><span class="custom-label redUi"><?php echo $parent["name"] ?></span></span>
+        <span class="Mlink"><span class="custom-label redUi"><?php echo $parent["url"] ?></span></span>
+        <span class="Mactions">
+          <button class="data-load button buttonBlueUi" href="/auth/menu/edit/<?php echo $parent["id"] ?>">редактировать</button>
+        </span>
+
+      </div>
+  <?php foreach($second_level as $child){?>
+
+    <?php if($child["parentId"] == $parent["id"] ) {?>
+      <div class="table-row">
+
+        <span class="Mname"><span class="custom-label blueUi"><?php echo mb_substr($child["name"],0,60) ?>...</span></span>
+        <span class="Mlink"><span class="custom-label blueUi"><?php echo $child["url"] ?></span></span>
+        <span class="Mactions">
+          <button class="data-load button buttonBlueUi" href="/auth/menu/edit/<?php echo $child["id"] ?>">редактировать</button>
+        </span>
+
+      </div>
+    <?php } ?>
+  <?php } ?>
+  </div>
+  <br/><br/><br/><br/>
+<?php } ?>

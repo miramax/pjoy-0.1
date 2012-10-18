@@ -1,0 +1,46 @@
+<h2><?php echo $content["name"] ?></h2>
+
+<div class="paneButtons">
+  <?php echo $buttons ?>
+</div>
+
+<?php if($success ) {?>
+<div class="system_success" style="display: block">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+  <p>Новая страница успешно сохранена</p>
+</div>
+<?php } ?>
+
+
+<div class="system_success">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+</div>
+<div class="system_error">
+  <span class="bold">Невозможно обновить страницу!</span><span class="close">×</span>
+</div>
+<br/>
+
+
+<?php if($content["alias"] == '/' ) {?>
+  <span class="custom-label redUi">отображается на главной</span>
+  <br/><br/>
+<?php } ?>
+
+<span class="custom-label greenUi">автор:
+
+  <?php foreach($users as $user){?>
+    <?php if($content["createdBy"] == $user["id"] ) {?>
+      <?php echo $user["name"] ?>
+    <?php } ?>
+  <?php } ?>
+
+</span>&nbsp;&nbsp;
+<span class="custom-label blueUi">дата создания: <?php echo  PjoyDate($content["createDate"] ) ?></span>&nbsp;&nbsp;
+<span class="custom-label blueUi">дата изменения: <?php echo  PjoyDate($content["modifyDate"] ) ?></span>&nbsp;&nbsp;
+
+<div class="action_form">
+  <?php echo $WebFormContentEdit ?>
+</div>
+<div class="delete_form" style="left: 120px;">
+  <?php echo $WebFormContentDelete ?>
+</div>

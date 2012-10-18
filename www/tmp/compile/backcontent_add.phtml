@@ -1,0 +1,31 @@
+<h2>Новая страница</h2>
+<div class="paneButtons">
+  <?php echo $buttons ?>
+</div>
+<div class="system_success">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+</div>
+<div class="system_error">
+  <span class="bold">Невозможно создать страницу!</span><span class="close">×</span>
+</div><br/>
+<span class="custom-label greenUi">автор: <?php echo $user["name"] ?></span>&nbsp;&nbsp;
+
+
+
+<?php $time = time() ?>
+<span class="custom-label blueUi">дата создания:<?php echo  PjoyDate($time ) ?></span>&nbsp;&nbsp;
+<div class="action_form">
+  <?php echo $WebFormContentAdd ?>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#native_form').Translit({
+    input: '#name',
+    output: '#alias',
+    spaces: '-',
+    prefix: '.html'
+  });
+});
+</script>

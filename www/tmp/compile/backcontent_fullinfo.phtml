@@ -1,0 +1,82 @@
+<h2>Подробная информация о страницах</h2>
+
+<div class="paneButtons">
+
+  <?php echo $buttons ?>
+
+</div>
+
+<?php echo $pagination ?>
+
+<br/>
+<div class="table">
+
+  <div class="table-head">
+    <span class="name data-load"       href="<?php echo $link ?>&order=name">Название</span>
+    <span class="categoryId data-load" href="<?php echo $link ?>&order=categoryId">Категория</span>
+    <span class="createdBy data-load"  href="<?php echo $link ?>&order=createdBy">Автор</span>
+    <span class="status data-load"     href="<?php echo $link ?>&order=status">Статус</span>
+    <span class="Cdate data-load"      href="<?php echo $link ?>&order=createDate">Дата созд.</span>
+    <span class="Mdate data-load"      href="<?php echo $link ?>&order=modifyDate">Дата изм.</span>
+  </div>
+
+  
+  
+  <?php foreach($content as $ct){?>
+  <div class="table-row">
+    <span class="name">
+      <a href="/auth/content/edit/<?php echo $ct["id"] ?>" class="data-load"><?php echo $ct["name"] ?></a>
+    </span>
+    <span class="categoryId">
+      <span class="custom-label blueUi">
+
+        
+
+        <?php foreach($categoryes as $cy){?>
+          <?php if($ct["categoryId"] == $cy["id"] ) {?>
+            <?php echo $cy["name"] ?>
+          <?php } ?>
+        <?php } ?>
+
+      </span>
+    </span>
+    <span class="createdBy">
+      <span class="custom-label yellowUi">
+
+        
+
+        <?php foreach($users as $user){?>
+          <?php if($ct["createdBy"] == $user["id"] ) {?>
+            <?php echo $user["name"] ?>
+          <?php } ?>
+        <?php } ?>
+
+      </span>
+    </span>
+    <span class="status">
+
+      
+
+      <?php if($ct["status"] == 1 ) {?>
+        <?php $className = 'green' ?>
+        <?php $status = 'вкл' ?>
+      <?php } else {?>
+        <?php $className = 'red' ?>
+        <?php $status = 'выкл' ?>
+      <?php } ?>
+
+      <span class="custom-label <?php echo $className ?>Ui"><?php echo $status ?></span>
+    </span>
+    <span class="Cdate">
+      <span class="custom-label greyUi"><?php echo  PjoyDate($ct["createDate"] , true) ?></span>
+    </span>
+    <span class="Mdate">
+       <span class="custom-label greyUi"><?php echo  PjoyDate($ct["modifyDate"] , true) ?></span>
+    </span>
+  </div>
+  <?php } ?>
+
+</div>
+<br/>
+
+<?php echo $pagination ?>

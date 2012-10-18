@@ -1,0 +1,26 @@
+<h2>Выберите изображение для редактирования</h2>
+
+<div class="paneButtons">
+
+  <?php echo $buttons ?>
+
+</div>
+
+<?php if(empty($images) ) {?>
+<div class="system_info" style="display: block">
+  <span class="bold">Системное сообщение</span><span class="close">×</span>
+  <p>Изображения не обнаружены</p>
+</div>
+<?php } ?>
+
+<div class="selectImage">
+
+  <?php foreach($images as $image){?>
+    <div>
+      <a href="/auth/filemanager/editor/<?php echo $image["id"] ?>/" class="data-load">
+        <img src="/public/uploads/thumbnails/<?php echo $image["name"] ?>"/>
+      </a>
+    </div>
+  <?php } ?>
+
+</div>

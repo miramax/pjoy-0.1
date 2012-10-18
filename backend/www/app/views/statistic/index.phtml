@@ -1,0 +1,43 @@
+<h2>Список переходов</h2>
+
+<div class="PaneButtons">
+  {{ @buttons }}
+</div>
+
+<div class="table">
+
+  <div class="table-head">
+    <span class="name" style="width:235px;">адрес страницы</span>
+    <span class="categoryId" style="width:60px;">браузер</span>
+    <span class="createdBy" style="width:70px;">ОС</span>
+    <span class="status" style="width:100px;">ip</span>
+    <span class="Cdate" style="width:100px;">дата</span>
+    <span class="Mdate" style="width:40px;">язык</span>
+  </div>
+
+{% for @stat in @stats %}
+
+  <div class="table-row">
+    <span class="name" style="width:235px;">
+     <a target="_blank" href="http://{{ @_SERVER.HTTP_HOST ~~~ @stat.url }}">{{ @stat.url }}</a>
+    </span>
+    <span class="categoryId" style="width:60px;">
+     <span class="custom-label blueUi">{{ @stat.ua }}</span>
+    </span>
+    <span class="createdBy" style="width:70px;">
+     <span class="custom-label blackUi">{{ @stat.os }}</span>
+    </span>
+    <span class="status" style="width:100px;">
+     <span class="custom-label greenUi">{{ @stat.ip }}</span>
+    </span>
+    <span class="Cdate" style="width:100px;">
+     <span class="custom-label greyUi">{{ @stat.date | shortDate }}</span>
+    </span>
+    <span class="Mdate" style="width:40px;">
+      <span class="custom-label redUi">{{ @stat.language }}</span>
+    </span>
+  </div>
+
+{% endfor %}
+
+</div>

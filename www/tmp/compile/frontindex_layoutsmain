@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><?php echo $seo["title"] ?></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="<?php echo $seo["keywords"] ?>"/>
+    <meta name="description" content="<?php echo $seo["description"] ?>"/>
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta name="robots" content="index,all"/>
+    <?php echo $css ?>
+    <?php echo $js ?>
+  </head>
+  <body>
+    <!--#wrapper-->
+    <div id="wrapper">
+      <div class="forms_bg">
+        <div id="fin_order">
+          <span id="close_form">×</span>
+          <div id="form_container">
+          </div>
+        </div>
+        <span class="form_triangle"></span>
+        <div class="triangle fupt"></div>
+      </div>
+      <!--.header-->
+      <div class="header_bg">
+        <div class="header">
+
+          <?php if(isset($_GET["path"]) ) {?>
+            <a href="/" rel="home" class="home_link">
+                <span class="logo"></span>
+            </a>
+          <?php } else {?>
+            <span class="logo"></span>
+          <?php } ?>
+
+          <div class="quote">
+            <span class="quote_left">&laquo;</span>
+            <span class="quote_text">Деньгами надо управлять, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;а не служить им</span>
+            <span class="quote_right">&raquo;</span>
+          </div>
+          <div class="top_links" id="formhead">
+            <a class="order finanse" href="#">
+              <span class="ico rate"></span>
+              <span class="link_dash">Заказать финансовый анализ</span>
+            </a>
+            <a class="order callback" href="#">
+              <span class="ico phone"></span>
+              <span class="link_dash">Заказать обратный звонок</span>
+            </a>
+          </div>
+          <div class="menu" id="menu">
+            <ul>
+              <li><a href="#" class="active">Услуги</a></li>
+              <li><a href="#" class="inactive">Диагностика</a></li>
+              <li><a href="#" class="inactive">Клиентам</a></li>
+              <li><a href="#" class="inactive">Публикации</a></li>
+              <li><a href="#" class="inactive">Нормативная база</a></li>
+            </ul>
+            <span class="clear"></span>
+          </div>
+          <div class="social_buttons">
+            <ul>
+              <li class="vk"></li>
+              <li class="fb"></li>
+              <li class="twit"></li>
+            </ul>
+          </div>
+          <div class="telephone"><p>8 (800) 200-45-45</p></div>
+          <div class="women"></div>
+          <div class="submenu" id="submenu">
+            <span class="pointer"></span>
+            <span class="question"><span>?</span></span>
+              <span id="question_block">
+                <span class="close">×</span>
+                для быстрого поиска информационных ресурсов рекомендуем выбрать необходимый раздел сверху, затем перейти в нужную категорию из списка
+              </span>
+              <ul>
+                <li>
+                  <a href="#">Анализ финансового состояния предприятия</a>
+                </li>
+                <li>
+                  <a href="#">Юридические услуги</a>
+                </li>
+                <li>
+                  <a href="#">Обработка и введение первичной документации</a>
+                </li>
+                <li>
+                  <a href="#">Управленческие рекомендации для компаний</a>
+                </li>
+                <li>
+                  <a href="#">Управление дебиторской задолженностью</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="triangle upt"></div>
+      <div class="content_bg">
+        <!--#content-->
+        <div id="content">
+          <div class="left_shadow"></div>
+          <div class="right_block">
+            <div class="right_bg"></div>
+            <div class="right_content">
+              <img src="/public/img/img.jpg" alt="Обработка и ведение первичной документации"/>
+              <div class="b_news">
+                <a class="rlink" href="#">Новости</a>
+                <ul>
+                  <li>
+                    <a class="hyperlink" href="#">Мы открылись</a>
+                    <span class="preview">
+                      Рады приветствовать Вас, на нашем сайте. Сообщаем, что начиная с 15 июля ...
+                    </span>
+                  </li>
+                  <li>
+                    <a class="hyperlink" href="#">Мы открылись</a>
+                    <span class="preview">
+                      Рады приветствовать Вас, на нашем сайте. Сообщаем, что начиная с 15 июля ...
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <span class="line"></span>
+              <div class="b_publications">
+                <a class="rlink" href="#">Публикации</a>
+                <ul>
+                  <li>
+                    <a class="hyperlink" href="#">Секреты принятия решения</a>
+                    <span class="preview">
+                      Рады приветствовать Вас, на нашем сайте. Сообщаем, что начиная с 15 июля ...
+                    </span>
+                  </li>
+                  <li>
+                    <a class="hyperlink" href="#">Дебиторская задолженность</a>
+                    <span class="preview">
+                      Сообщаем нашим пользователямо том, что ...
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="left_block">
+
+            <?php echo $content ?>
+
+          </div>
+          <span class="clear"></span>
+        </div>
+      </div>
+      <div class="triangle downt"></div>
+      <!--.footer-->
+      <div class="footer_bg">
+        <div id="footer">
+          <div class="logo_bot"></div>
+          <p class="phone_bot">
+            Тел.: <span>8 (800) 200-45-45</span>
+          </p>
+          <a class="order feedback" href="#">
+            <span class="ico mail"></span>
+            <span class="link_dash">Связаться с администрацией</span>
+          </a>
+          <p class="copy">&copy; Финанс-Актив, 2012</p>
+          <span class="clear"></span>
+        </div>
+      </div>
+      <div class="forms_bot_bg">
+        <span class="form_bot_triangle"></span>
+        <div class="triangle bfupt"></div>
+        <div id="admin_order">
+          <span id="close_bot_form">×</span>
+          <div id="form_bot_container"></div>
+        </div>
+        <div id="scroll_pos"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<h2>Обозреватель</h2>
+
+<div class="paneButtons">
+  <?php echo $buttons ?>
+</div>
+
+<div id="directoryes">
+ <ul>
+
+   <?php foreach($categoryes as $category){?>
+   <li>
+     <span class="dir"><span class="dir_icon"></span><?php echo $category["name"] ?></span>
+      <ul class="files-list">
+
+      <?php foreach($content as $c){?>
+        <?php if($c["categoryId"] == $category["id"] ) {?>
+          <li>
+            <span class="file_icon"></span>
+
+            
+            <?php if($c["status"] == 0 ) {?>
+              <?php $className = 'red' ?>
+            <?php } else {?>
+              <?php $className = '' ?>
+            <?php } ?>
+
+            <a href="/auth/content/edit/<?php echo $c["id"] ?>" class="data-load <?php echo  isset($className)?$className:""?>"><?php echo $c["name"] ?></a>
+
+          </li>
+        <?php } ?>
+      <?php } ?>
+
+      </ul>
+   </li>
+
+   <?php } ?>
+ </ul>
+</div>

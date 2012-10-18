@@ -1,0 +1,34 @@
+<h2>Редактирование комменатрия</h2>
+
+<div class="paneButtons">
+  {{ @buttons }}
+</div>
+
+<div class="action_form">
+  <span class="custom-label yellowUi">Автор: {{ @comment.createdBy }}</span>
+  <span class="custom-label blueUi">E-mail: {{ @comment.userEmail }}</span>
+
+      {% if @comment.status == 1 %}
+        {% @className = 'green' %}
+        {% @status = 'вкл' %}
+        {% @button.text = 'Отключить' %}
+        {% @button.url = 'statusOff' %}
+        {% @button.class = 'Black' %}
+      {% else %}
+        {% @className = 'red' %}
+        {% @status = 'выкл' %}
+        {% @button.text = 'Включить' %}
+        {% @button.url = 'statusOn' %}
+        {% @button.class = 'Green' %}
+      {% endif %}
+
+  <span class="custom-label {{ @className }}Ui">Статус: {{ @status }}</span>
+  <br/><br/>
+  <span class="custom-label blackUi">Содержание:</span><br/>
+  <hr/>
+  <p>{{ @comment.content }}</p>
+  <hr/>
+  <br/>
+  <button class="button button{{@button.class}}Ui data-load" href="/auth/comments/{{ @button.url }}/{{ @comment.id }}">{{ @button.text }}</button>
+  <button class="button buttonRedUi data-load" href="/auth/comments/delete/{{ @comment.id }}">Удалить</button>
+</div>

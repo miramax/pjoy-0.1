@@ -1,0 +1,38 @@
+<h2>Обозреватель</h2>
+
+<div class="paneButtons">
+  {{ @buttons }}
+</div>
+
+<div id="directoryes">
+ <ul>
+
+   {% for @category in @categoryes %}
+   <li>
+     <span class="dir"><span class="dir_icon"></span>{{ @category.name }}</span>
+      <ul class="files-list">
+
+      {% for @c in @content %}
+        {% if @c.categoryId == @category.id %}
+          <li>
+            <span class="file_icon"></span>
+
+            /* get current style for invisible articles */
+            {% if @c.status == 0 %}
+              {% @className = 'red' %}
+            {% else %}
+              {% @className = '' %}
+            {% endif %}
+
+            <a href="/auth/content/edit/{{ @c.id }}" class="data-load {{ @className? }}">{{ @c.name }}</a>
+
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      </ul>
+   </li>
+
+   {% endfor %}
+ </ul>
+</div>

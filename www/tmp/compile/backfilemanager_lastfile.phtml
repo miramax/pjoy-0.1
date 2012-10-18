@@ -1,0 +1,26 @@
+<?php if(!$errors ) {?>
+<div class="filePreview lastFile" style="display:none">
+  <div class="preview">
+    <?php if(preg_match('/(jpeg|jpg|png|gif)/i', $file["filetype"]) ) {?>
+      <img src="/public/uploads/thumbnails/<?php echo $file["filename"] ?>" />
+    <?php } else {?>
+      <span class="iconfile"><span class="custom-number blackUi">.<?php echo $file["filetype"] ?></span></span>
+    <?php } ?>
+  </div>
+  <div class="file-name">
+    <span class="custom-label blueUi" style="font-size: 10px"><?php echo $file["filename"] ?></span>
+  </div>
+  <div class="file-size">
+    <span class="custom-number yellowUi"><?php echo ceil($file["filesize"]/1000) ?>Kb</span>
+  </div>
+  <div class="file-actions">
+    <button class="button buttonRedUi remove_file" rel="<?php echo $file["filename"] ?>">Удалить</button>
+  </div>
+</div>
+<span class="clear"></span>
+<?php } else {?>
+<div class="system_error" style="display: block">
+  <span class="bold">При загрузке файла произошла ошибка</span><span class="close">×</span>
+  <p><?php echo $errors ?></p>
+</div>
+<?php } ?>

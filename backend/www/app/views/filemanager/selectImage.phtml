@@ -1,0 +1,26 @@
+<h2>Выберите изображение для редактирования</h2>
+
+<div class="paneButtons">
+
+  {{ @buttons }}
+
+</div>
+
+{% if empty(@images) %}
+<div class="system_info" style="display: block">
+  <span class="bold">Системное сообщение</span><span class="close">×</span>
+  <p>Изображения не обнаружены</p>
+</div>
+{% endif %}
+
+<div class="selectImage">
+
+  {% for @image in @images %}
+    <div>
+      <a href="/auth/filemanager/editor/{{ @image.id }}/" class="data-load">
+        <img src="/public/uploads/thumbnails/{{ @image.name }}"/>
+      </a>
+    </div>
+  {% endfor %}
+
+</div>

@@ -1,0 +1,48 @@
+<h2>Комментарии</h2>
+
+<?php if(!empty($comments) ) {?>
+<div class="table">
+
+  <div class="table-head">
+    <span class="name">Содержание</span>
+    <span class="categoryId">Автор</span>
+    <span class="createdBy" style="width:170px;">E-mail</span>
+    <span class="status">Статус</span>
+    <span class="Mdate">Дата созд.</span>
+  </div>
+  <?php foreach($comments as $comment){?>
+    <div class="table-row">
+      <span class="name">
+        <a href="/auth/comments/edit/<?php echo $comment["id"] ?>" class="data-load"><?php echo mb_substr($comment["content"],0,150) ?></a>
+      </span>
+      <span class="categoryId">
+        <span class="custom-label yellowUi"><?php echo $comment["createdBy"] ?></span>
+      </span>
+      <span class="createdBy" style="width:170px;">
+        <span class="custom-label blueUi"><?php echo $comment["userEmail"] ?></span>
+      </span>
+      <span class="status">
+      
+
+      <?php if($comment["status"] == 1 ) {?>
+        <?php $className = 'green' ?>
+        <?php $status = 'вкл' ?>
+      <?php } else {?>
+        <?php $className = 'red' ?>
+        <?php $status = 'выкл' ?>
+      <?php } ?>
+
+      <span class="custom-label <?php echo $className ?>Ui"><?php echo $status ?></span>
+      </span>
+      <span class="Mdate">
+        <span class="custom-label greyUi"><?php echo  PjoyDate($comment["createDate"] , true) ?></span>
+      </span>
+    </div>
+  <?php } ?>
+</div>
+<?php } else {?>
+      <div class="system_info" style="display: block">
+        <span class="bold">Системное сообщение</span>
+        <p>На сайте нет ни одного добавленного коментария</p>
+      </div>
+<?php } ?>

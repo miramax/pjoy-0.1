@@ -1,0 +1,26 @@
+{% if !@errors %}
+<div class="filePreview lastFile" style="display:none">
+  <div class="preview">
+    {% if preg_match('/(jpeg|jpg|png|gif)/i', @file.filetype) %}
+      <img src="/public/uploads/thumbnails/{{ @file.filename }}" />
+    {% else %}
+      <span class="iconfile"><span class="custom-number blackUi">.{{ @file.filetype }}</span></span>
+    {% endif %}
+  </div>
+  <div class="file-name">
+    <span class="custom-label blueUi" style="font-size: 10px">{{ @file.filename }}</span>
+  </div>
+  <div class="file-size">
+    <span class="custom-number yellowUi">{{ ceil(@file.filesize/1000) }}Kb</span>
+  </div>
+  <div class="file-actions">
+    <button class="button buttonRedUi remove_file" rel="{{ @file.filename }}">Удалить</button>
+  </div>
+</div>
+<span class="clear"></span>
+{% else %}
+<div class="system_error" style="display: block">
+  <span class="bold">При загрузке файла произошла ошибка</span><span class="close">×</span>
+  <p>{{ @errors }}</p>
+</div>
+{% endif %}

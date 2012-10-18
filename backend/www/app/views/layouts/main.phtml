@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+
+    <title>Панель администрирования</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+{{ @css }}
+{{ @js }}
+
+    <link rel="icon" href="/public/img/login/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="shortcut icon" href="/public/img/login/favicon.ico"/>
+
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="mid">
+        <div class="logo"></div>
+        <div class="top_nav">
+          <ul>
+            <li><span class="user"></span><a href="#">m1ramax</a></li>
+            <li><span class="preview"></span><a href="/" target="_blank">просмотр сайта</a></li>
+            <li><span class="mess"></span><a href="#">сообщения</a> +1</li>
+            <li class="right"><span class="exit"></span><a href="/auth/logout.html">выход</a></li>
+          </ul>
+        </div>
+        <span class="clear"></span>
+      </div>
+    </div>
+    <span class="clear"></span>
+    <div class="pane">
+      <div class="mid">
+        <span class="unlocked"></span>
+        <span class="permissions">Чтение и запись</span>
+      </div>
+    </div>
+
+    <div class="dashboard">
+
+      <div class="overflow-auto">
+
+        <div class="right-block">
+          <div class="bigblockUi" id="contentHolder">
+            <div class="block-head-elements" id="dynamic_icon">
+                  <span class="block-icon edit-icon"></span>
+            </div>
+            <div class="elementsUi" id="elementsUi">
+
+              {{ @content }}
+
+            </div>
+          </div>
+        </div>
+
+        <div class="left-block">
+
+            <div class="blockUi edit-block activeBlock">
+              <div class="block-head">
+                <div class="fadeBlock">
+                  <span class="block-icon edit-icon"></span>
+                  <span class="block-desc">Редактирование</span>
+                </div>
+              </div>
+                <div class="block-navigation">
+                  <ul>
+                    <li>
+                      <a id="main_link" href="/auth/content/">
+                        <span class="navigate-icon page-ico"></span>
+                        <span class="navigate-name">содержание</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/auth/filemanager/">
+                        <span class="navigate-icon file-ico"></span>
+                        <span class="navigate-name">файлы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/auth/menu/">
+                        <span class="navigate-icon menu-ico"></span>
+                        <span class="navigate-name">меню</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/auth/category/">
+                        <span class="navigate-icon cat-ico"></span>
+                        <span class="navigate-name">категории</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/auth/comments/">
+                        <span class="navigate-icon comment-ico"></span>
+                        <span class="navigate-name">комментарии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/auth/tags/">
+                        <span class="navigate-icon tag-ico"></span>
+                        <span class="navigate-name">теги</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="blockUi admin-block">
+              <div class="block-head">
+                <div class="fadeBlock">
+                  <span class="block-icon admin-icon"></span>
+                  <span class="block-desc">Администрирование</span>
+                </div>
+              </div>
+                <div class="block-navigation">
+                  <ul>
+                    <li>
+                      <a href="/auth/statistic/">
+                        <span class="navigate-icon stat-ico"></span>
+                        <span class="navigate-name">статистика</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon mail-ico"></span>
+                        <span class="navigate-name">входящие</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon users-ico"></span>
+                        <span class="navigate-name">пользователи</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon set-ico"></span>
+                        <span class="navigate-name">настройки</span>
+                      </a>
+                    </li>
+                    <!--<li>
+                      <a href="#">
+                        <span class="navigate-icon owner-ico"></span>
+                        <span class="navigate-name">владелец сайта</span>
+                      </a>
+                    </li>-->
+                    <!--<li>
+                      <a href="#">
+                        <span class="navigate-icon recover-ico"></span>
+                        <span class="navigate-name">восстановление данных</span>
+                      </a>
+                    </li>-->
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon backup-ico"></span>
+                        <span class="navigate-name">резервное копирование</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon staff-ico"></span>
+                        <span class="navigate-name">поддержка</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="blockUi doc-block">
+              <div class="block-head" id="documentation-call">
+                <div class="fadeBlock">
+                  <span class="block-icon doc-icon"></span>
+                  <span class="block-desc">Документация</span>
+                </div>
+              </div>
+                <div class="block-navigation">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon doc-ico"></span>
+                        <span class="navigate-name">права доступа</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon doc-ico"></span>
+                        <span class="navigate-name">создание страниц</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon doc-ico"></span>
+                        <span class="navigate-name">загрузка файлов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon doc-ico"></span>
+                        <span class="navigate-name">шаблоны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="navigate-icon doc-ico"></span>
+                        <span class="navigate-name">веб-формы</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      <span class="clear"></span>
+    </div>
+
+    <div class="footer">
+      <div class="mid">
+        <div class="f_cont">
+          © Copyright 2012
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

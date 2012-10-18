@@ -1,0 +1,28 @@
+<h2>Источники переходов</h2>
+
+<div class="PaneButtons">
+  <?php echo $buttons ?>
+</div>
+<div>
+  &nbsp;&nbsp;&nbsp;
+  <img src="pages_referer.png" alt=""/>
+</div>
+
+<div class="table">
+
+    <div class="table-head">
+      <span class="Mname" >Адрес страницы</span>
+      <span class="Mlink" >Количество просмотров</span>
+      <span class="Mactions">Соотношение</span>
+    </div>
+
+  <?php foreach($refs as $ref){?>
+    <div class="table-row">
+
+        <span class="Mname"><a target="_blank" href="http://<?php echo $_SERVER["HTTP_HOST"] . $ref["referer"] ?>"><?php echo $ref["referer"] ?></a></span>
+        <span class="Mlink"><span class="custom-number redUi"><?php echo $ref["count"] ?></span></span>
+        <span class="Mactions"><?php echo $ref["percents"] ?>%</span>
+
+    </div>
+  <?php } ?>
+</div>

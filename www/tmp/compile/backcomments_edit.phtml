@@ -1,0 +1,34 @@
+<h2>Редактирование комменатрия</h2>
+
+<div class="paneButtons">
+  <?php echo $buttons ?>
+</div>
+
+<div class="action_form">
+  <span class="custom-label yellowUi">Автор: <?php echo $comment["createdBy"] ?></span>
+  <span class="custom-label blueUi">E-mail: <?php echo $comment["userEmail"] ?></span>
+
+      <?php if($comment["status"] == 1 ) {?>
+        <?php $className = 'green' ?>
+        <?php $status = 'вкл' ?>
+        <?php $button["text"] = 'Отключить' ?>
+        <?php $button["url"] = 'statusOff' ?>
+        <?php $button["class"] = 'Black' ?>
+      <?php } else {?>
+        <?php $className = 'red' ?>
+        <?php $status = 'выкл' ?>
+        <?php $button["text"] = 'Включить' ?>
+        <?php $button["url"] = 'statusOn' ?>
+        <?php $button["class"] = 'Green' ?>
+      <?php } ?>
+
+  <span class="custom-label <?php echo $className ?>Ui">Статус: <?php echo $status ?></span>
+  <br/><br/>
+  <span class="custom-label blackUi">Содержание:</span><br/>
+  <hr/>
+  <p><?php echo $comment["content"] ?></p>
+  <hr/>
+  <br/>
+  <button class="button button<?php echo $button["class"] ?>Ui data-load" href="/auth/comments/<?php echo $button["url"] ?>/<?php echo $comment["id"] ?>"><?php echo $button["text"] ?></button>
+  <button class="button buttonRedUi data-load" href="/auth/comments/delete/<?php echo $comment["id"] ?>">Удалить</button>
+</div>

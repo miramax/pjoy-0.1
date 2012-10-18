@@ -1,0 +1,28 @@
+<h2>Популярные страницы</h2>
+
+<div class="PaneButtons">
+  {{ @buttons }}
+</div>
+<div>
+  &nbsp;&nbsp;&nbsp;
+  <img src="pages_statistic.png" alt=""/>
+</div>
+
+<div class="table">
+
+    <div class="table-head">
+      <span class="Mname" >Адрес страницы</span>
+      <span class="Mlink" >Количество просмотров</span>
+      <span class="Mactions">Соотношение</span>
+    </div>
+
+  {% for @page in @pages %}
+    <div class="table-row">
+
+        <span class="Mname"><a target="_blank" href="http://{{ @_SERVER.HTTP_HOST ~~~ @page.url }}">{{ @page.url }}</a></span>
+        <span class="Mlink"><span class="custom-number redUi">{{ @page.count }}</span></span>
+        <span class="Mactions">{{ @page.percents }}%</span>
+
+    </div>
+  {% endif %}
+</div>

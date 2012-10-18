@@ -1,0 +1,43 @@
+<h2>Список переходов</h2>
+
+<div class="PaneButtons">
+  <?php echo $buttons ?>
+</div>
+
+<div class="table">
+
+  <div class="table-head">
+    <span class="name" style="width:235px;">адрес страницы</span>
+    <span class="categoryId" style="width:60px;">браузер</span>
+    <span class="createdBy" style="width:70px;">ОС</span>
+    <span class="status" style="width:100px;">ip</span>
+    <span class="Cdate" style="width:100px;">дата</span>
+    <span class="Mdate" style="width:40px;">язык</span>
+  </div>
+
+<?php foreach($stats as $stat){?>
+
+  <div class="table-row">
+    <span class="name" style="width:235px;">
+     <a target="_blank" href="http://<?php echo $_SERVER["HTTP_HOST"] . $stat["url"] ?>"><?php echo $stat["url"] ?></a>
+    </span>
+    <span class="categoryId" style="width:60px;">
+     <span class="custom-label blueUi"><?php echo $stat["ua"] ?></span>
+    </span>
+    <span class="createdBy" style="width:70px;">
+     <span class="custom-label blackUi"><?php echo $stat["os"] ?></span>
+    </span>
+    <span class="status" style="width:100px;">
+     <span class="custom-label greenUi"><?php echo $stat["ip"] ?></span>
+    </span>
+    <span class="Cdate" style="width:100px;">
+     <span class="custom-label greyUi"><?php echo  PjoyDate($stat["date"] , true) ?></span>
+    </span>
+    <span class="Mdate" style="width:40px;">
+      <span class="custom-label redUi"><?php echo $stat["language"] ?></span>
+    </span>
+  </div>
+
+<?php } ?>
+
+</div>

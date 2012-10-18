@@ -1,0 +1,127 @@
+.button {
+    display: inline-block;
+    width: auto;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 30px;
+    padding: 0px 15px 1px 15px;
+    font-size: 13px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    outline: none;
+    word-spacing: normal;
+    letter-spacing: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/*** Grey Button ***/
+.buttonGreyUi {
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    border: 1px solid #cdcdcd;
+    background: url(../img/login/grey.jpg) repeat-x;
+    color: black;
+}
+
+.buttonGreyUi:hover {
+    background: #dbdbde;
+}
+
+.buttonGreyUi:active {
+    background: #cdcdcd;
+    border-color: #bcbcbc;
+}
+
+
+
+/*** Blue Button ***/
+.buttonBlueUi {
+    border: 1px solid #005da4;
+    border-color: #05C #05C #003580;
+    background: url(../img/login/blue.jpg) repeat-x;
+}
+
+.buttonBlueUi:hover {
+    background: #0074cc;
+}
+
+.buttonBlueUi:active {
+    border-color: #003580;
+    background: #005da4;
+}
+
+
+
+/*** Green Button ***/
+.buttonGreenUi {
+    border: 1px solid #3e9c3e;
+    border-color: #51A351 #51A351 #387038;
+    background: url(../img/login/green.jpg) repeat-x;
+}
+
+.buttonGreenUi:hover {
+    background: #5bb75b;
+}
+
+.buttonGreenUi:active {
+    border-color: #387038;
+    background: #459545;
+}
+
+
+
+/*** Red Button ***/
+.buttonRedUi {
+    border: 1px solid #ae302a;
+    border-color: #BD362F #BD362F #802420;
+    background: url(../img/login/red.jpg) repeat-x;
+}
+
+.buttonRedUi:hover {
+    background: #bd362f;
+}
+
+.buttonRedUi:active {
+    background: #a72e28;
+    border-color: #802420;
+}
+
+
+
+/*** Yellow Button ***/
+.buttonYellowUi {
+    border: 1px solid #FAA732;
+    border-color: #F89406 #F89406 #c38022;
+    background: url(../img/login/yellow.jpg) repeat-x;
+}
+
+.buttonYellowUi:hover {
+    background: #FAA732;
+}
+
+.buttonYellowUi:active {
+    background: #e89b2f;
+    border-color: #c38022;
+}
+
+
+
+/*** Black Button ***/
+.buttonBlackUi {
+    border: 1px solid #222;
+    border-color: #222 #222 black;
+    background: url(../img/login/black.jpg) repeat-x;
+}
+.buttonBlackUi:hover {
+    background: #4f4f4f;
+}
+
+.buttonBlackUi:active {
+    border-color: black;
+    background: #414141;
+}

@@ -1,0 +1,46 @@
+<h2>{{ @content.name }}</h2>
+
+<div class="paneButtons">
+  {{ @buttons }}
+</div>
+
+{% if @success %}
+<div class="system_success" style="display: block">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+  <p>Новая страница успешно сохранена</p>
+</div>
+{% endif %}
+
+
+<div class="system_success">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+</div>
+<div class="system_error">
+  <span class="bold">Невозможно обновить страницу!</span><span class="close">×</span>
+</div>
+<br/>
+
+
+{% if @content.alias == '/' %}
+  <span class="custom-label redUi">отображается на главной</span>
+  <br/><br/>
+{% endif %}
+
+<span class="custom-label greenUi">автор:
+
+  {% for @user in @users %}
+    {% if @content.createdBy == @user.id %}
+      {{ @user.name }}
+    {% endif %}
+  {% endfor %}
+
+</span>&nbsp;&nbsp;
+<span class="custom-label blueUi">дата создания: {{ @content.createDate | fullDate }}</span>&nbsp;&nbsp;
+<span class="custom-label blueUi">дата изменения: {{ @content.modifyDate | fullDate }}</span>&nbsp;&nbsp;
+
+<div class="action_form">
+  {{ @WebFormContentEdit }}
+</div>
+<div class="delete_form" style="left: 120px;">
+  {{ @WebFormContentDelete }}
+</div>

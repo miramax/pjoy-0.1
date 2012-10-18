@@ -1,0 +1,48 @@
+<h2>Комментарии</h2>
+
+{% if !empty(@comments) %}
+<div class="table">
+
+  <div class="table-head">
+    <span class="name">Содержание</span>
+    <span class="categoryId">Автор</span>
+    <span class="createdBy" style="width:170px;">E-mail</span>
+    <span class="status">Статус</span>
+    <span class="Mdate">Дата созд.</span>
+  </div>
+  {% for @comment in @comments %}
+    <div class="table-row">
+      <span class="name">
+        <a href="/auth/comments/edit/{{ @comment.id }}" class="data-load">{{ mb_substr(@comment.content,0,150) }}</a>
+      </span>
+      <span class="categoryId">
+        <span class="custom-label yellowUi">{{ @comment.createdBy }}</span>
+      </span>
+      <span class="createdBy" style="width:170px;">
+        <span class="custom-label blueUi">{{ @comment.userEmail }}</span>
+      </span>
+      <span class="status">
+      /* get current className */
+
+      {% if @comment.status == 1 %}
+        {% @className = 'green' %}
+        {% @status = 'вкл' %}
+      {% else %}
+        {% @className = 'red' %}
+        {% @status = 'выкл' %}
+      {% endif %}
+
+      <span class="custom-label {{ @className }}Ui">{{ @status }}</span>
+      </span>
+      <span class="Mdate">
+        <span class="custom-label greyUi">{{ @comment.createDate | shortDate }}</span>
+      </span>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+      <div class="system_info" style="display: block">
+        <span class="bold">Системное сообщение</span>
+        <p>На сайте нет ни одного добавленного коментария</p>
+      </div>
+{% endif %}

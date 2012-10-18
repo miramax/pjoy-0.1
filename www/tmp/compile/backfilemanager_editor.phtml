@@ -1,0 +1,68 @@
+<h2>Редактор изображений</h2>
+
+<div class="paneButtons">
+
+  <?php echo $buttons ?>
+
+</div>
+
+
+<?php if($error ) {?>
+<div class="system_warning show">
+  <span class="bold">Не заданы параметры для редактирования!</span><span class="close">×</span>
+  <p>Для редактирования выделите необходимую область на изображении</p>
+</div>
+<br/>
+<?php } ?>
+
+
+<?php if($success ) {?>
+<div class="system_success show">
+  <span class="bold">Системное сообщение</span><span class="close">×</span>
+  <p>Изображение успешно отредактировано</p>
+</div>
+<div class="system_info show">
+  <span class="bold">Внимание!</span><span class="close">×</span>
+  <p>После изменения изображения рекомендуется очистить кэш интернет-браузера</p>
+</div><br/>
+<?php } ?>
+
+
+<div class="image-cropper">
+  <div class="image-decorator">
+    <img id="crop_image" src="/public/uploads/<?php echo $image["name"] ?>?v=<?php echo time() ?>" />
+  </div>
+  <br /><br />
+</div>
+
+<form action="/auth/filemanager/crop/" method="post" id="native_form">
+    <input name="file" type="hidden" value="<?php echo $image["name"] ?>" />
+    <input name="file_id" type="hidden" value="<?php echo $image["id"] ?>" />
+    <input id="x" name="x" type="hidden" />
+    <input id="y" name="y" type="hidden" />
+    <input id="width" name="width" type="hidden" />
+    <input id="height" name="height" type="hidden" />
+    <input type="submit" class="button buttonGreenUi" value="Обрезать" />
+</form>
+
+
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+      $('img#crop_image').imageCrop({
+          displaySize : true,
+          overlayOpacity : 0.5,
+
+          onSelect : updateForm
+      });
+  });
+
+  function updateForm(crop) {
+      $('input#x').val(crop.selectionX);
+      $('input#y').val(crop.selectionY);
+      $('input#width').val(crop.selectionWidth);
+      $('input#height').val(crop.selectionHeight);
+  };
+
+</script>

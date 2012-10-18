@@ -1,0 +1,31 @@
+<h2>Новая страница</h2>
+<div class="paneButtons">
+  {{ @buttons }}
+</div>
+<div class="system_success">
+  <span class="bold">Системное сообщение:</span><span class="close">×</span>
+</div>
+<div class="system_error">
+  <span class="bold">Невозможно создать страницу!</span><span class="close">×</span>
+</div><br/>
+<span class="custom-label greenUi">автор: {{ @user.name }}</span>&nbsp;&nbsp;
+
+
+/* get current timestamp */
+{% @time = time() %}
+<span class="custom-label blueUi">дата создания:{{ @time | fullDate }}</span>&nbsp;&nbsp;
+<div class="action_form">
+  {{ @WebFormContentAdd }}
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#native_form').Translit({
+    input: '#name',
+    output: '#alias',
+    spaces: '-',
+    prefix: '.html'
+  });
+});
+</script>
